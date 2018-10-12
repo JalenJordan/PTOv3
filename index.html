@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>PTO V3</title>
+    </head>
+    <body>
+        <h1>PTO V3</h1>
+        <p>A simple PTO(Paid time off) calculator that uses how many years you have worked to get correct PTO rate. Then uses how many weeks you have worked so far this year to calculate total PTO then. Then deducts any PTO that you have taken so far Results can be returned in hours or days or weeks</p>
+        <ol>
+            <li>START</li>
+            <li>Declare static variables</li>
+            <li>Declare input for years that was worked to get a PTO rate</li>
+            <li>If years &lt; 5 give PTO value of 5</li>
+            <li>if years &gt; 5 give PTO value of 6</li>
+            <li>if years &gt; 10 give PTO value of 7</li>
+            <li>Delcare input for how many weeks they worked so far</li>
+            <li>Process a equation to caclulate the paid time off so far</li>
+            <li>Process a equation to caclulate how much paid time off they have left</li>
+            <li>display selection</li>
+            <li>Declare the options of weeks days and hours</li>
+            <li>for weeks</li>
+            <li>process  weeks / 40.</li>
+            <li>for days</li>
+            <li>process days / 8.</li>
+            <li>for hours</li>
+            <li>process hours / 1.</li>
+        </ol> 
+        <form id="results"> 
+            <p>how many years have you worked:</p>
+            <input type="text" id="totalYears"><br>
+            <p>How many weeks have you worked so far:</p><br>
+            <input type="text" id="totalWeeks"><br>
+            <p>How many hours of PTO you have used so far:</p><br>
+            <input type="text" id="totalHours"><br>
+            <br>
+            <!-- <input type="radio" name="type" id="week" checked="checked">weeks<br>
+            <input type="radio" name="type" id="day">days<br>
+            <input type="radio" name="type" id="hour"> hours <br>
+            <br> -->
+            <br>
+            <input type="button" value="submit" onclick=" calculate ()" >
+        </form>
+        <span id="answer"></span>
+    </body>
+    <script>
+        function calculate(){
+            var totalYears = parseInt(document.getElementById('totalYears').value);
+            var totalWeeks = parseInt(document.getElementById('totalWeeks').value);
+            var totalHours = parseInt(document.getElementById('totalHours').value);
+            var answer = document.getElementById('answer');
+            var totalHours = 40;
+            var totalDays = 7;
+            var checkPerYear = 26;
+
+            if (totalYears <= 5){
+                var ptoPerCheck = 5;
+            }
+            if (totalYears >= 6){
+                var ptoPerCheck = 6;
+            }
+            if (totalYears >= 10){
+                var ptoPerCheck = 7;
+            }
+            var ptoLeft = (checkPerYear * ptoPerCheck) ;
+            console.log(ptoLeft)
+
+            answer.innerHTML = "You have " + ptoLeft + " Hours left <br> You have  " + ptoLeft/totalDays + " Days left <br> You have " + ptoLeft/totalHours + " Weeks left";
+        }
+        // function calculate()
+        // {
+        //     var results = document.getElementById('result');
+        //     var answer = document.getElementById('answer');
+        //     var totalYears = parseInt(document.getElementById('totalYears').value);            
+        //     var totalWeeks = parseInt(document.getElementById('totalWeeks').value);
+        //     var totalHours = parseInt(document.getElementById('totalHours').value);
+        //     if  (totalYears <= 5 ) {
+        //         PTO = 5;
+        //         console.log(PTO)
+        //     }
+        //     if (totalYears > 5) {
+        //         PTO = 6;
+        //     }
+        //     if ( totalYears >= 10 ){
+        //         PTO = 7;
+        //     }
+
+        // }
+    </script>
+</html>

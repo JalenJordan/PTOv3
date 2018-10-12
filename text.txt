@@ -1,0 +1,23 @@
+PTO V3 
+should consist of three inputs and a selector
+
+answers: 3.9 and 4.5
+
+document.getElementById("btn_click").addEventListener("click", function(){
+
+  
+  if(document.querySelector('input[name="age1"]').value !== "" && document.querySelector('input[name="gender"]:checked') !== null )
+  {
+  console.log("Age : ", document.querySelector('input[name="age1"]').value);
+  console.log("Gender : ", document.querySelector('input[name="gender"]:checked').value);
+   }
+  else
+  {
+    console.log("Please provide all the details.")
+   }
+});
+
+checks hours * 26
+checks / 40
+day *24
+week *7
